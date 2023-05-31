@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import {UnauthenticatedError,BadRequestError,NotFoundError} from "../errors/index.js"
 import {StatusCodes} from 'http-status-codes'
+const oneDay=1000*60*60*24
 export const register=async(req,res,next)=>{
     const {name,email,password}=req.body
     if(!name || !email || !password){
@@ -12,6 +13,7 @@ export const register=async(req,res,next)=>{
     }
     const user=await User.create({name,email,password})
     const token=user.createJwt()
+    res.cookie('token',token,{httpOnly:true,expires:new Date(Date.now() + oneDay)})
     res.status(StatusCodes.CREATED).json({user:{name:user.name,email:user.email,lastName:user.lastName},token})
 }
 export const login=async(req,res,next)=>{
@@ -30,4 +32,5 @@ export const login=async(req,res,next)=>{
     const token=user.createJwt()
     res.status(StatusCodes.OK).json({user:{name:user.name,email:user.email,lastName:user.lastName},token})
 }
+
 
