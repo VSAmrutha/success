@@ -30,7 +30,20 @@ export const login=async(req,res,next)=>{
         throw new UnauthenticatedError('Passwords do not match')
     }
     const token=user.createJwt()
+    res.cookie('token',token,{httpOnly:true,expires:new Date(Date.now() + oneDay)})
     res.status(StatusCodes.OK).json({user:{name:user.name,email:user.email,lastName:user.lastName},token})
+}
+export const updateUser=async(req,res,next)=>{
+    const {email, name, lastName}=req.body;
+    if(!name || !email || !lastName){
+        throw new BadRequestError('Please provide all values')
+    }
+    const user=await User.findOne({email})
+    user.lastName=lastName
+    user.email=email
+    user.name=name
+    await user.save()
+    res.status(StatusCodes.OK).json({user})
 }
 
 

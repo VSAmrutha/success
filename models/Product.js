@@ -1,9 +1,27 @@
 import mongoose from 'mongoose'
-
+//ame
+description
+price
+category
+brand
+image_url
 const ProductSchema=new mongoose.Schema({
-    productName:{
+    title:{
         type:String,
         required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        enum:['men','women','kids'],
+        required:true
+    },
+    ratings:{
+        type:Number,
+        default:1
     },
     price:{
         type:Number,
