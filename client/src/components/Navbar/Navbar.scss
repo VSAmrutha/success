@@ -1,0 +1,35 @@
+.navbarwrapper{
+    background-color: var(--primary-color1);
+    height:7rem;
+    color:var(--white);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+        width:5rem;
+        margin-left:2rem;
+        img{
+           height:100%;
+           max-width:100%; 
+        }
+    }
+    .navlinks{
+        ul {
+            display:flex;
+            li{
+                padding:1rem 2rem;
+                a{
+                    color:var(--white);
+                    &:hover{
+                        color:var(--secondary-color1)
+                    }
+                }
+                .nav-active{
+                    color:var(--secondary-color1)
+                }
+            }
+        }
+       
+    }
+
+}
