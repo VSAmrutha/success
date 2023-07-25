@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "build-client": "cd client && npm run build",
-    "server": "nodemon server --ignore client",
+  "server": "nodemon server --ignore client",
     "client": "npm start --prefix client",
-    "start": "nodemon server"
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\""
   },
   "keywords": [],
   "author": "",
