@@ -45,5 +45,8 @@ export const updateUser=async(req,res,next)=>{
     await user.save()
     res.status(StatusCodes.OK).json({user})
 }
+export const test=(req,res)=>{
+    res.status(StatusCodes.OK).json({msg:"hello"})
+}
 
 

@@ -1,0 +1,33 @@
+.form-row{
+    label{
+        display:block;
+        text-transform: capitalize;
+        margin-bottom:0.5rem;
+        font-weight:var(--fw-400) ;
+    }
+    input{
+        margin-bottom:0.5rem;
+        padding:0.5rem 1rem;
+        width:100%;
+        border:none;
+        border-radius:1rem;
+    }
+    textarea{
+        margin-bottom:0.5rem;
+        padding:0.5rem 1rem;
+        width:100%;
+        border-radius:1rem;
+    }
+}
+@media (min-width: 768px) {
+    .form-row{
+        label{
+            margin-bottom:1.5rem;
+        }
+        input{
+            margin-bottom:1.5rem;
+            padding:1rem 1rem;
+           
+        }
+    }
+}
