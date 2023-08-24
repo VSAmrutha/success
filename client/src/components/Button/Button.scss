@@ -7,3 +7,31 @@
     cursor: pointer;
     color:var(--white);
 }
+.btn-simple{
+    border:none;
+    background: none;
+    cursor: pointer;
+    color:var(--primary-color2);
+    &:hover{
+        color:var(--secondary-color2);
+    }
+}
+.btn-sec{
+    background-color: var(--secondary-color2);
+    border-radius:0.5rem;
+    padding:1rem 5rem;
+    border: none;
+    cursor: pointer;
+    color:var(--white);
+    margin:1rem;
+    width:30%;
+}
+//.btn-icon{
+//    background-color: transparent;
+//    border-radius:0.5rem;
+//    padding:1rem 5rem;
+//    width:100%;
+//    border: none;
+//    cursor: pointer;
+//    color:var(--white);
+//}
